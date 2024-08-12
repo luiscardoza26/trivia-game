@@ -1,10 +1,10 @@
 // src/server.js
 
 const express = require('express');
-const http = require('http');
+const serverless = require('serverless-http');
 const socketIo = require('socket.io');
 const path = require('path');
-const questions = require('./questions');
+const questions = require('../src/questions');
 
 const app = express();
 const server = http.createServer(app);
@@ -108,3 +108,5 @@ io.on('connection', (socket) => {
 server.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
+
+module.exports.handler = serverless(app);
