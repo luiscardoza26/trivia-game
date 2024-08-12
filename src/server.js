@@ -4,7 +4,7 @@ const express = require('express');
 const serverless = require('serverless-http');
 const socketIo = require('socket.io');
 const path = require('path');
-const questions = require('../../src/questions');
+const questions = require('./questions');
 
 const app = express();
 const server = http.createServer(app);
