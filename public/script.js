@@ -63,7 +63,7 @@ socket.on('newQuestion', (questionData) => {
     questionData.options.forEach((option, index) => {
         const button = document.createElement('button');
         button.textContent = option;
-        button.className = 'w-full p-4 text-lg font-medium text-white bg-purple-500 rounded-lg hover:bg-purple-600 transition-colors duration-300 transform hover:scale-105';
+        button.className = 'option-button';
         button.onclick = () => submitAnswer(index);
         optionsElement.appendChild(button);
     });
@@ -95,7 +95,7 @@ socket.on('answerResult', (result) => {
 socket.on('updateScores', (scores) => {
     scoresElement.innerHTML = '';
     Object.entries(scores).forEach(([id, score]) => {
-        const li = document.createElement('li');
+        const li = document.createElement('p');
         li.textContent = `Jugador ${id.substr(0, 4)}: ${score}`;
         li.className = 'mb-2 p-2 bg-white rounded shadow';
         scoresElement.appendChild(li);
@@ -151,9 +151,9 @@ function updateTimer() {
             if (countdownSound.paused) {
                 countdownSound.play();
             }
-            timerElement.className = 'text-center text-2xl font-bold text-red-500';
+            timerElement.className = 'urgent pulse';
         } else {
-            timerElement.className = 'text-center text-2xl font-bold text-gray-700';
+            timerElement.className = '';
         }
         timerInterval = setTimeout(updateTimer, 1000);
     } else {

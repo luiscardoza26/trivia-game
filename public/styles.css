@@ -2,79 +2,189 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #9333ea, #3b82f6);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 50%;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    border-radius: 0.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem;
+    text-align: center;
 }
 
 h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+/* Main content */
+main {
+    padding: 1.5rem;
+}
+
+/* Start screen */
+#start-screen {
     text-align: center;
-    color: #333;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#start-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #10b981;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+#start-button:hover {
+    background-color: #059669;
+}
+
+/* Game area */
+/* #game-area {
+    display: none;
+} */
+
+#game-area.space-y-6 > * + * {
+    margin-top: 1.5rem;
+}
+
+#category {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    color: #9333ea;
 }
 
 #question-container {
-    margin-bottom: 20px;
+    background-color: #f3f4f6;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+#question {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
 }
 
 #options {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
-button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4CAF50;
+@media (min-width: 768px) {
+    #options {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+#options button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.125rem;
+    font-weight: 500;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #8b5cf6;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-button:hover {
-    background-color: #45a049;
+#options button:hover {
+    background-color: #7c3aed;
+    transform: scale(1.05);
 }
 
 #result {
     text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
 #timer {
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 #scoreboard {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+#scoreboard h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 #scores {
-    list-style-type: none;
-    padding: 0;
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
 }
 
 #scores li {
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
+/* Utility classes */
+.hidden {
+    display: none;
+}
+
+.text-green-500 {
+    color: #10b981;
+}
+
+.text-red-500 {
+    color: #ef4444;
+}
+
+.text-orange-500 {
+    color: #f97316;
+}
+
+.text-gray-700 {
+    color: #374151;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
 
 @keyframes pulse {
     0% { transform: scale(1); }
